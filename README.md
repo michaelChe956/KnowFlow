@@ -5,9 +5,11 @@
 # KnowFlow - 企业级智能知识库解决方案
 
 
-🌐 **官方网站**: [https://weizxfree.github.io/KnowFlowSite/](https://weizxfree.github.io/KnowFlowSite/)
+🌐 **官方网站**: [https://www.knowflowchat.cn](https://knowflowchat.cn)
 
 📺 **B站视频**: [https://www.bilibili.com/video/BV1Vfg8zDEUf/](https://www.bilibili.com/video/BV1Vfg8zDEUf/)
+
+🌐 **微信公众号**：KnowFlow 企业知识库
 
 ---
 

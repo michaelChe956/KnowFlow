@@ -4,7 +4,6 @@
 
 # KnowFlow - 企业级智能知识库解决方案
 
-[![Star History Chart](https://api.star-history.com/svg?repos=weizxfree/KnowFlow&type=Date)](https://star-history.com/#weizxfree/KnowFlow&Date)
 
 🌐 **官方网站**: [https://weizxfree.github.io/KnowFlowSite/](https://weizxfree.github.io/KnowFlowSite/)
 
@@ -21,6 +20,37 @@
 - **RAGFlow 企业落地的最后一公里**：解决从开源到生产的关键差距
 - **插件化增强平台**：通过独立服务方式扩展 RAGFlow 功能
 - **企业级知识管理系统**：提供完整的用户权限、团队协作、数据安全保障
+
+
+## 📦 版本差异
+
+### 社区版 vs 商业版
+
+| 功能特性 | 社区版 (开源) | 商业版 |
+|---------|-------------|--------|
+| **基础功能** | ✅ RAGFlow 基础功能 | ✅ RAGFlow 核心功能 |
+| **MinerU 解析** | ✅ 图文混排输出 | ✅ 图文混排输出增强 |
+| **小红书 Dots 解析** | ❌ | ✅ 和 MinerU 完全一致的用户体验 |
+| **权限管理** | RBAC 简略版 | ✅ RBAC 完整版本 |
+| **分块策略** | 正则、语义、标题、父子分块 | ✅ 新增按照标题层级切割以及追加标题内容，支持图片理解 |
+| **版本兼容** | 适配 v0.20.1 | ✅ 适配 RAGFlow v0.20.5 |
+| **企业集成** | ✅ 企业微信集成 | ✅ Dify 深度集成 |
+| **高级分析** | ❌ | ✅ 使用统计分析 |
+| **技术支持** | 🔧 社区支持 | 🔧 专业技术支持 |
+| **商业授权** | ❌ | ✅ 商业使用许可 |
+
+### 商业版增强特性
+
+- **RBAC 权限管理**：基于角色的访问控制，精细化权限分配
+- **父子分段**：智能分块策略，含图片理解，分块标题补充，提升检索精度和问答质量
+- **版本兼容**：适配最新 RAGFlow v0.20.5，持续更新支持
+- **企业级安全**：数据加密、审计日志、合规性管理
+- **性能优化**：专业性能调优，支持大规模并发
+- **定制开发**：根据企业需求定制功能模块
+- **专业支持**：7x24小时技术支持，快速响应
+
+> 💡 **获取商业版**：微信联系 `skycode007`（备注"商业版咨询"）
+
 
 ### 🏗️ 系统架构
 
@@ -836,6 +866,9 @@ AGPL-3.0 允许商业使用，但有重要约束：
 ### 📢 更新信息
 
 项目持续更新中，更新日志会在微信公众号 **[KnowFlow 企业知识库]** 发布，欢迎关注。
+
+[![Star History Chart](https://api.star-history.com/svg?repos=weizxfree/KnowFlow&type=Date)](https://star-history.com/#weizxfree/KnowFlow&Date)
+
 
 ### 🙏 鸣谢
 

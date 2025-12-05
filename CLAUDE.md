@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - ❌ **禁止使用英文**：不得使用任何英文回复（代码本身的技术术语除外）
 - 📝 **文档语言**：所有生成的文档、注释和说明都必须是中文
 - 💬 **交流方式**：与用户的所有交互必须使用中文进行
+- 📦 **前端包管理**：前端项目必须使用 pnpm 作为包管理工具，禁止使用 npm 或 yarn
 
 这是一项不可协商的强制要求，违反此规则将被视为严重的使用错误。
 
@@ -110,8 +111,8 @@ pnpm lint
 # RAGFlow Web（基于 Umi/React）
 cd web
 pnpm test
-npm run build
-npm run lint
+pnpm build
+pnpm lint
 ```
 
 #### 代码质量检查
@@ -121,7 +122,7 @@ cd knowflow/web
 pnpm lint
 
 cd web
-npm run lint
+pnpm lint
 ```
 
 ## 项目结构
@@ -193,6 +194,49 @@ npm run lint
 - pnpm（前端包管理）
 - Docker & Docker Compose（部署）
 
+### 前端开发强制规则
+
+#### 📦 包管理工具
+- **强制使用 pnpm**：所有前端项目必须使用 pnpm 作为包管理工具
+- **禁止使用 npm/yarn**：严禁在前端项目中使用 npm 或 yarn 命令
+- **统一依赖管理**：pnpm 能确保依赖版本一致性和磁盘空间优化
+
+#### pnpm 常用命令
+```bash
+# 安装依赖
+pnpm install
+
+# 添加依赖
+pnpm add <package-name>          # 生产依赖
+pnpm add -D <package-name>       # 开发依赖
+
+# 运行脚本
+pnpm dev                         # 开发服务器
+pnpm build                       # 生产构建
+pnpm test                        # 运行测试
+pnpm lint                        # 代码检查
+
+# 全局操作
+pnpm -g add <package-name>       # 全局安装
+pnpm -g list                     # 全局包列表
+```
+
+#### 前端项目结构
+- **KnowFlow Web**：`knowflow/web/` （Vue3 + Element Plus）
+- **RAGFlow Web**：`web/` （React + Umi + Ant Design）
+
+#### 依赖管理规范
+- 所有包安装必须通过 pnpm
+- 使用 `pnpm.lock.yaml` 锁定依赖版本
+- 定期运行 `pnpm audit` 检查安全漏洞
+- 遵循语义化版本控制原则
+
+#### ⚠️ 重要注意事项
+- **package.json 脚本**：如果 package.json 中的 scripts 仍包含 npm 命令，使用 pnpm 时会自动转换
+- **脚本执行**：即使 package.json 中写的是 `npm run dev`，也可以用 `pnpm dev` 执行
+- **统一原则**：无论 package.json 中如何写，都要使用 pnpm 命令行工具
+- **团队协作**：确保所有团队成员都安装并使用 pnpm
+
 ## 默认账户信息
 - 邮箱：admin@gmail.com
 - 密码：admin
@@ -218,3 +262,70 @@ npm run lint
 - 自动生成的代码注释使用中文
 - API 文档和使用说明用中文编写
 - 部署指南和配置说明用中文描述
+
+### 📁 文档存储强制规则
+
+**所有 Claude 生成的文档必须存放在 `.claude` 目录下**
+
+为了统一管理和维护项目文档，所有 Claude 生成的文档类型必须按以下规则存储：
+
+#### 核心文档类型
+- **需求文档** → `.claude/docs/`
+  - 功能需求说明
+  - 用户需求分析
+  - 业务需求文档
+
+- **方案设计** → `.claude/designs/`
+  - 架构设计方案
+  - 技术方案文档
+  - 实现方案设计
+  - 接口设计文档
+
+- **README 文档** → `.claude/readmes/`
+  - 项目说明文档
+  - 模块使用指南
+  - 部署说明文档
+
+#### 其他文档类型
+- **系统架构** → `.claude/architecture/`
+  - 系统架构分析
+  - 技术架构文档
+  - 微服务架构设计
+
+- **开发笔记** → `.claude/notes/`
+  - 开发过程记录
+  - 临时技术笔记
+  - 问题解决记录
+
+- **分析报告** → `.claude/analysis/`
+  - 代码分析报告
+  - 技术调研报告
+  - 性能分析文档
+
+- **开发日志** → `.claude/logs/`
+  - 开发日志记录
+  - 问题追踪文档
+  - 变更记录
+
+#### 文档命名规范
+- 使用中文命名，清晰表达文档内容
+- 格式：`文档名称_版本号_日期.md`
+- 示例：`用户认证系统设计方案_v1.0_20241205.md`
+
+#### 强制要求
+- ❌ **禁止**将文档随意放置在项目根目录或其他位置
+- ✅ **必须**将所有 Claude 生成的文档放入对应的 `.claude` 子目录
+- 📝 **建议**定期整理和归档文档，保持目录结构清晰
+- 🔍 **便于**团队成员快速查找和维护相关文档
+
+**目录结构示例：**
+```
+.claude/
+├── docs/           # 需求文档
+├── designs/        # 方案设计
+├── readmes/        # README 文档
+├── architecture/   # 系统架构
+├── notes/          # 开发笔记
+├── analysis/       # 分析报告
+└── logs/           # 开发日志
+```
